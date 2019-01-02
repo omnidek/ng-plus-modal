@@ -76,16 +76,18 @@ export class Modal {
     }
 
     public static closeParentModal(element?: Element | Event) {
-
-        console.log(element);
+        // console.log('close modal');
+        // console.log(element);
 
         let projected: Element;
         if (element && element instanceof Element) {
+            // console.log('is element');
             projected = element.closest('.projector');
         } else if (element && element instanceof Event && element.srcElement instanceof Element) {
+            // console.log('is event');
             projected = element.srcElement.closest('.projector');
         }
-
+        // console.log('element', projected);
         if (projected && projected.id) {
             Modal.closeModalById(projected.id);
         }
@@ -132,12 +134,14 @@ export class Modal {
             this.animation = 'slideInRight';
             // To-Do: Investigate this behaviour
             this.docked = behaviour;
-            if (behaviour) {
-                document.querySelector('#projected-' + this.id).classList.add('no-display');
-                document.querySelector('#docked-' + this.id).classList.remove('no-display');
-            } else {
-                document.querySelector('#docked-' + this.id).classList.add('no-display');
-                document.querySelector('#projected-' + this.id).classList.remove('no-display');
+            if (document.querySelector('#projected-' + this.id)) {
+                if (behaviour) {
+                    document.querySelector('#projected-' + this.id).classList.add('no-display');
+                    document.querySelector('#docked-' + this.id).classList.remove('no-display');
+                } else {
+                    document.querySelector('#docked-' + this.id).classList.add('no-display');
+                    document.querySelector('#projected-' + this.id).classList.remove('no-display');
+                }
             }
         }, this.exitDelayForAnimation);
     }

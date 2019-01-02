@@ -1,7 +1,7 @@
-<ng-container *ngIf="isProjectorOn">
+<!-- <ng-container *ngIf="isProjectorOn"> -->
     <ng-container *ngFor="let item of modals">
         <div class="projector-screen projector"
-             [ngClass]="{'no-display' : item.docked}"
+             [ngClass]="{'no-display' : item.docked || !isProjectorOn}"
              (click)="backgroundClicked($event, item)"
              id="{{item.id}}">
             <div class="projected-item animated {{item.styles}} {{item.animation}}"
@@ -35,7 +35,7 @@
             </div>
         </div>
     </ng-container>
-</ng-container>
+<!-- </ng-container> -->
 
 <div class="dock">
     <ng-container *ngFor="let item of modals">
