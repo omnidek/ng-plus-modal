@@ -11,12 +11,16 @@
                         {{ item.title || item.selector }}
                     </div>
                     <div class="projector-buttons" *ngIf="item.showTitleButtons">
-                        <div class="projector-dock" (click)="item.dock(true)" ngplusClickStopPropagation>
-                            <i class="fal fa-chevron-down"></i>
+                        <a (click)="item.dock(true)"><i class="fal fa-chevron-down m-r-5"></i>Minimize</a>
+                        <a (click)="item.close()"><i class="fal fa-times m-r-5"></i>Close</a>
+                        <!-- <button class="btn btn-gray-light btn-sm"><i class="fal fa-chevron-down"></i>Minimize</button>
+                        <button class="btn btn-gray-light btn-sm"><i class="fal fa-times"></i>Close</button> -->
+                        <!-- <div class="projector-dock" (click)="item.dock(true)" ngplusClickStopPropagation>
+                            <i class="fal fa-chevron-down"></i>Minimize
                         </div>
                         <div class="projector-close" (click)="item.close()" ngplusClickStopPropagation>
-                            <i class="fal fa-times"></i>
-                        </div>
+                            <i class="fal fa-times"></i>Close
+                        </div> -->
                     </div>
                 </div>
                 <div class="projected-item-content-body">

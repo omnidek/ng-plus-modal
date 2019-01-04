@@ -18,7 +18,7 @@ export class ModalsComponent {
 
     backgroundClicked(event, modal: Modal) {
         if (event.target.className.indexOf('projector-screen') >= 0) {
-            modal.escape();
+            modal.dock();
         }
     }
 

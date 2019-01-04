@@ -8,10 +8,7 @@
 
     /* Dotted background */
     padding: 2.25em 1.6875em;
-    background-image: -webkit-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
-    background-image: -moz-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
-    background-image: -ms-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+    
     -webkit-background-size: 3px 3px;
     -moz-background-size: 3px 3px;
     background-size: 3px 3px;
@@ -62,11 +59,21 @@
 .projector-buttons, .dock-buttons {
     position: absolute;
     right: 1em;
-    top: .25em;
+    top: 0px;
+    height: 100%;
+    display: flex;
 }
-
-.projector-buttons, .dock-buttons {
-    top: .5em
+.projector-buttons > a {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+}
+.projector-buttons > a:hover {
+    background-color: rgba(255,255,255, 0.1);
 }
 
 .projector-buttons .projector-close,
