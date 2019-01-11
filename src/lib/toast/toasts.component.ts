@@ -23,6 +23,7 @@ import { Toast } from './toast';
 export class ToastsComponent implements OnInit {
 
     ngOnInit() {
+        
     }
 
     get toasts(): Toast[] {

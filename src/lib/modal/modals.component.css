@@ -58,10 +58,11 @@
 
 .projector-buttons, .dock-buttons {
     position: absolute;
-    right: 1em;
-    top: 0px;
+    right: 1rem;
+    top: 0rem;
     height: 100%;
     display: flex;
+    line-height: 3rem;
 }
 .projector-buttons > a {
     flex: 0 0 auto;
@@ -109,15 +110,28 @@
     background-color: #010811;
     color: white;
     display: inline-block;
-    margin: .25em .25em 0 0;
+    margin: .4rem .4rem 0 0;
     line-height: 1.5em;
-    padding: 0.5em 1em;
+    padding: .8rem 1rem;
     width: 200px;
     cursor: pointer;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     position: relative;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+    -webkit-box-shadow: 0px -2px 5px 0px rgba(102, 123, 158, 0.5);
+    -moz-box-shadow: 0px -2px 5px 0px rgba(102, 123, 158, 0.5);
+    box-shadow: 0px -2px 5px 0px rgba(102, 123, 158, 0.5);
+    transition:all 200ms;
+}
+
+.dock .docked-item:hover{
+    -webkit-box-shadow: 0px -2px 5px 0px rgba(102, 123, 158, 0.6);
+    -moz-box-shadow: 0px -2px 5px 0px rgba(102, 123, 158, 0.6);
+    box-shadow: 0px -2px 5px 0px rgba(102, 123, 158, 0.6);
+    padding-top: 1rem;
 }
 
 .no-display {
