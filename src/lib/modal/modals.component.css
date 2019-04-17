@@ -1,14 +1,15 @@
 .projector {
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     z-index: 10001;
-    background: rgba(0,0,0,.7);
+    background: rgba(0, 0, 0, .7);
 
     /* Dotted background */
     padding: 2.25em 1.6875em;
-    
+
     -webkit-background-size: 3px 3px;
     -moz-background-size: 3px 3px;
     background-size: 3px 3px;
@@ -22,7 +23,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
     background: white;
     overflow-y: auto;
 }
@@ -56,7 +57,8 @@
     display: block;
 }
 
-.projector-buttons, .dock-buttons {
+.projector-buttons,
+.dock-buttons {
     position: absolute;
     right: 1rem;
     top: 0rem;
@@ -64,7 +66,8 @@
     display: flex;
     line-height: 3rem;
 }
-.projector-buttons > a {
+
+.projector-buttons>a {
     flex: 0 0 auto;
     display: flex;
     align-items: center;
@@ -73,8 +76,9 @@
     padding-right: 15px;
     color: white;
 }
-.projector-buttons > a:hover {
-    background-color: rgba(255,255,255, 0.1);
+
+.projector-buttons>a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .projector-buttons .projector-close,
@@ -99,7 +103,8 @@
 
 .dock {
     position: fixed;
-    bottom: -.5em; /* Bug Fix: Check why 5em is offset */
+    bottom: -.5em;
+    /* Bug Fix: Check why 5em is offset */
     right: 0;
     width: auto;
     height: auto;
@@ -124,10 +129,10 @@
     -webkit-box-shadow: 0px -2px 5px 0px rgba(102, 123, 158, 0.5);
     -moz-box-shadow: 0px -2px 5px 0px rgba(102, 123, 158, 0.5);
     box-shadow: 0px -2px 5px 0px rgba(102, 123, 158, 0.5);
-    transition:all 200ms;
+    transition: all 200ms;
 }
 
-.dock .docked-item:hover{
+.dock .docked-item:hover {
     -webkit-box-shadow: 0px -2px 5px 0px rgba(102, 123, 158, 0.6);
     -moz-box-shadow: 0px -2px 5px 0px rgba(102, 123, 158, 0.6);
     box-shadow: 0px -2px 5px 0px rgba(102, 123, 158, 0.6);
@@ -144,11 +149,15 @@
     }
 
     .dock {
-        display:none;
+        display: none;
     }
 
-    .modal-item-title{
+    .modal-item-title {
         pointer-events: none;
+    }
+
+    .modal-label {
+        display: none;
     }
 }
 
@@ -160,11 +169,11 @@
 }
 
 
-.projected-item  {
+.projected-item {
     display: flex;
     flex-direction: column;
 }
 
-.projected-item-content-body>*{
+.projected-item-content-body>* {
     width: 100%;
 }
