@@ -16,8 +16,7 @@
 }
 
 .projector .projected-item {
-    width: 400px;
-    max-width: 80%;
+    width: 80%;
     height: 100%;
     margin: 0;
     position: absolute;
@@ -145,7 +144,7 @@
 
 @media (max-width: 1024px) {
     .projector .projected-item {
-        max-width: 100%;
+        width: 100%;
     }
 
     .dock {

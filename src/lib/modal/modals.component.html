@@ -2,7 +2,7 @@
 <ng-container *ngFor="let item of modals">
     <div class="projector-screen projector" [ngClass]="{'no-display' : item.docked || !isProjectorOn}"
         (click)="backgroundClicked($event, item)" id="{{item.id}}">
-        <div class="projected-item animated {{item.styles}} {{item.animation}}" [style.width.px]="item.width">
+        <div class="projected-item animated {{item.styles}} {{item.animation}}">
             <div class="projected-item-content-title bg-color-1" *ngIf="item.showTitle">
                 <div class="modal-item-title">
                     {{ item.title || item.selector }}
