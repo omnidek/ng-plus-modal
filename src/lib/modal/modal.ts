@@ -2,6 +2,7 @@ import { ModalButton } from './modal-button';
 import { Uuid } from '../core/Uuid';
 import { Subject, Observable } from 'rxjs';
 
+// tslint:disable:member-ordering
 export class Modal {
     public static _modals: Modal[] = [];
 
@@ -37,6 +38,7 @@ export class Modal {
 
     constructor() {
         this.id = this.id || Uuid.generate();
+        // console.log(`ng-modal id => ${this.id}`);
         Modal.checkIfSetupIsOk();
     }
 
@@ -112,12 +114,12 @@ export class Modal {
         switch (this.onEscape) {
             case 'dock':
                 this.dock(true);
-                this.dockedSubject.next(this);
+                // this.dockedSubject.next(this);
                 break;
 
             case 'close':
                 this.close();
-                this.closedSubject.next(this);
+                // this.closedSubject.next(this);
                 break;
 
             default:
@@ -125,7 +127,7 @@ export class Modal {
         }
     }
 
-    dock(behaviour: boolean = true) {
+    dock(behaviour = true) {
         // Slide Right while exiting:
         this.animation = 'slideOutRight';
 
@@ -144,6 +146,7 @@ export class Modal {
                 }
             }
         }, this.exitDelayForAnimation);
+        this.dockedSubject.next(this);
     }
 
     close() {
@@ -151,6 +154,7 @@ export class Modal {
         setTimeout(() => {
             this.exitImmediately();
         }, this.exitDelayForAnimation);
+        this.closedSubject.next(this);
     }
 
     exitImmediately() {
