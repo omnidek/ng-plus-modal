@@ -33,6 +33,8 @@
     margin: 0 auto;
     top: 50%;
     top: calc(50vh - 200px);
+    background: none;
+    box-shadow: none;
 }
 
 .projector .projected-item .projected-item-content-title {
