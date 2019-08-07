@@ -18,6 +18,7 @@
 .projector .projected-item {
     width: 88%;
     height: 100%;
+    display: flex;
     margin: 0;
     position: absolute;
     top: 0;
@@ -46,7 +47,6 @@
 }
 
 .projector .projected-item .projected-item-content-body {
-    background: white;
     flex: 1 auto;
     display: flex;
     height: auto;
