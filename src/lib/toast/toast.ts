@@ -27,8 +27,13 @@ export class Toast {
             return this;
         }
         this.presented = true;
-        Toast._toasts.push(this);
-        this.setTimeOutForAutoExit();
+        const existingToasts = Toast._toasts.filter(x => x.title === this.title && x.message === this.message);
+        // console.log('existing toasts', existingToasts);
+        if (existingToasts.length === 0) {
+            Toast._toasts.push(this);
+            this.setTimeOutForAutoExit();
+        }
+        // console.log('toasts', Toast._toasts);
         return this;
     }
 
