@@ -9,10 +9,7 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
     imports: [
-        CommonModule,
-        RouterModule.forRoot([
-            { path: 'ng-plus-confirm', component: ConfirmComponent },
-        ])
+        CommonModule
     ],
     declarations: [
         ClickStopPropagationDirective,
