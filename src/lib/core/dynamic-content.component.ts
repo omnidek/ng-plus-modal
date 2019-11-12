@@ -9,11 +9,11 @@ import { Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewCont
 
 export class DynamicContentComponent implements OnInit {
 
-    @ViewChild('container', {read: ViewContainerRef}) container: ViewContainerRef;
+    @ViewChild('container', { static: true, read: ViewContainerRef }) container: ViewContainerRef;
     @Input() selector: string;
     @Input() componentClass: string;
     @Input() data: object = {};
-//    @Input() module: string;
+    //    @Input() module: string;
 
     constructor(protected resolver: ComponentFactoryResolver) {
     }
@@ -22,7 +22,7 @@ export class DynamicContentComponent implements OnInit {
 
         const factories = Array.from(this.resolver['_factories'].values()) as any[];
         const component = factories.find(factory => factory.selector === this.selector);
-
+        // debugger;
         if (component) {
             this.container.clear();
             const activatedComponent = this.container.createComponent(component);
@@ -41,25 +41,25 @@ export class DynamicContentComponent implements OnInit {
         }
 
     }
-/*
-    getFactoryResolver() {
-        if (!this.module) {
-            return this.resolver;
+    /*
+        getFactoryResolver() {
+            if (!this.module) {
+                return this.resolver;
+            }
+    
+            const resolver: any = this.resolver;
+            const providers: any = Array.from(resolver._ngModule._providers)
+    
+            const module = providers.find(x =>
+                x &&
+                x.__proto__ &&
+                x.__proto__.constructor &&
+                x.__proto__.constructor.name &&
+                x.__proto__.constructor.name == this.module
+            );
+    
+    
         }
-
-        const resolver: any = this.resolver;
-        const providers: any = Array.from(resolver._ngModule._providers)
-
-        const module = providers.find(x =>
-            x &&
-            x.__proto__ &&
-            x.__proto__.constructor &&
-            x.__proto__.constructor.name &&
-            x.__proto__.constructor.name == this.module
-        );
-
-
-    }
-*/
+    */
 
 }
