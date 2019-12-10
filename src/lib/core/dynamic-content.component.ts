@@ -9,7 +9,7 @@ import { Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewCont
 
 export class DynamicContentComponent implements OnInit {
 
-    @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
+    @ViewChild('container', { read: ViewContainerRef, static: true }) container: ViewContainerRef;
     @Input() selector: string;
     @Input() componentClass: string;
     @Input() data: object = {};
