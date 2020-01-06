@@ -6,6 +6,7 @@ import { ClickStopPropagationDirective } from './core/click-stop-propagaton.dire
 import { ToastsComponent } from './toast/toasts.component';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { RouterModule } from '@angular/router';
+import { Alert } from './alert/alert';
 
 @NgModule({
     imports: [
@@ -22,6 +23,11 @@ import { RouterModule } from '@angular/router';
         ModalsComponent,
         ToastsComponent,
         ConfirmComponent,
+    ],
+    bootstrap: [
+        ConfirmComponent,
+        ToastsComponent,
+        ModalsComponent,
     ]
 })
 export class TiModalModule { }
