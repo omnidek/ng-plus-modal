@@ -4,7 +4,7 @@ import { Modal } from './modal';
 @Component({
     selector: 'ng-plus-modals',
     templateUrl: 'modals.component.html',
-    styleUrls: ['modals.component.css', '../assets/animate.css']
+    styleUrls: ['modals.component.css', '../assets/animate.css','../assets/btn.css', '../assets/default-styles.css']
 })
 export class ModalsComponent {
 

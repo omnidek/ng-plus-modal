@@ -1,0 +1,50 @@
+
+.background-info {
+    background: #d29918;
+}
+
+.text-info {
+    color:  #d29918;
+}
+
+.btn-info {
+    background: #d29918;
+    color: white;
+}
+
+.background-danger {
+    background: #d64747;
+}
+
+.text-danger {
+    color: #d64747;
+}
+
+.btn-danger {
+    background: #d64747;
+    color: white;
+}
+
+.background-success {
+    background: green;
+}
+
+.text-success {
+    color: green;
+}
+
+.btn-success {
+    background: green;
+    color: white;
+}
+
+.title {
+    font-size: 1.4rem;
+    padding-bottom: 8px;
+}
+
+.btn-default{
+    background: #8e8989;
+    color: white;
+}
+

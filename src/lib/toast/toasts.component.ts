@@ -17,13 +17,13 @@ import { Toast } from './toast';
             </div>
         </div>
     `,
-    styleUrls: ['toasts.component.css', '../assets/animate.css']
+    styleUrls: ['toasts.component.css', '../assets/animate.css','../assets/btn.css', '../assets/default-styles.css']
 })
 
 export class ToastsComponent implements OnInit {
 
     ngOnInit() {
-        
+
     }
 
     get toasts(): Toast[] {

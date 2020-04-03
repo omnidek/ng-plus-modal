@@ -17,6 +17,85 @@ export class Toast {
     protected presented = false;
     protected timeout;
 
+
+    private static checkIfSetupIsOk() {
+        if (document.querySelector('ng-plus-toasts') === null) {
+            console.warn('Please add <ng-plus-toasts></ng-plus-toasts> in your app root.');
+        }
+    }
+
+    public static create(toast: object): Toast {
+        if (toast instanceof Toast) {
+            return toast;
+        }
+        let newToast: Toast;
+        newToast = Object.assign(new Toast(), toast);
+        return newToast.present();
+    }
+
+    private static prepare(title: string, message?: string, button?: string, onClick?: (toast?: Toast) => void): Toast {
+        const toast = new Toast();
+        toast.title = title;
+        toast.message = message;
+        toast.button = button;
+        toast.onClick = onClick;
+        toast.present();
+        return toast;
+    }
+
+    public static info(title: string, message?: string, button?: string, onClick?: (toast?: Toast) => void): Toast {
+        if (!message) {
+            message = title;
+            title = 'Information';
+        }
+        return Toast.prepare(title, message, button, onClick).setStyle('info');
+    }
+
+    public static error(title: string, message?: string, button?: string, onClick?: (toast?: Toast) => void): Toast {
+        if (!message) {
+            message = title;
+            title = 'Error';
+        }
+        return Toast.prepare(title, message, button, onClick).setStyle('danger').setTime(0);
+    }
+
+    public static danger(title: string, message?: string, button?: string, onClick?: (toast?: Toast) => void): Toast {
+        if (!message) {
+            message = title;
+            title = 'Danger';
+        }
+        return Toast.prepare(title, message, button, onClick).setTime(0).setStyle('danger');
+    }
+
+    public static success(title: string, message?: string, button?: string, onClick?: (toast?: Toast) => void): Toast {
+        if (!message) {
+            message = title;
+            title = 'Success';
+        }
+        return Toast.prepare(title, message, button, onClick).setStyle('success');
+    }
+
+    public static warning(title: string, message?: string, button?: string, onClick?: (toast?: Toast) => void): Toast {
+        if (!message) {
+            message = title;
+            title = 'Warning';
+        }
+        return Toast.prepare(title, message, button, onClick).setStyle('warning');
+    }
+
+
+    public static removeToast(toast: Toast) {
+        toast.destroy();
+    }
+
+    public  static removeToastById(id: string) {
+        const toast = Toast._toasts.find(t => t.id === id);
+        if (toast) {
+            toast.destroy();
+        }
+    }
+
+
     constructor() {
         this.id = this.id || Uuid.generate();
         Toast.checkIfSetupIsOk();
@@ -77,82 +156,6 @@ export class Toast {
                 .forEach(toast => toast.animation = animation);
             callback();
         }, this.exitDelayForAnimation);
-    }
-
-    private static checkIfSetupIsOk() {
-        if (document.querySelector('ng-plus-toasts') === null) {
-            console.warn('Please add <ng-plus-toasts></ng-plus-toasts> in your app root.');
-        }
-    }
-
-    public static create(toast: object): Toast {
-        if (toast instanceof Toast) {
-            return toast;
-        }
-        let newToast: Toast;
-        newToast = Object.assign(new Toast(), toast);
-        return newToast.present();
-    }
-
-    private static prepare(title: string, message?: string, button?: string, onClick?: (toast?: Toast) => void): Toast {
-        const toast = new Toast();
-        toast.title = title;
-        toast.message = message;
-        toast.button = button;
-        toast.onClick = onClick;
-        toast.present();
-        return toast;
-    }
-
-    public static info(title: string, message?: string, button?: string, onClick?: (toast?: Toast) => void): Toast {
-        if (!message) {
-            message = title;
-            title = 'Information';
-        }
-        return Toast.prepare(title, message, button, onClick).setStyle('info');
-    }
-
-    public static error(title: string, message?: string, button?: string, onClick?: (toast?: Toast) => void): Toast {
-        if (!message) {
-            message = title;
-            title = 'Error';
-        }
-        return Toast.prepare(title, message, button, onClick).setTime(0).setStyle('danger');
-    }
-
-    public static danger(title: string, message?: string, button?: string, onClick?: (toast?: Toast) => void): Toast {
-        if (!message) {
-            message = title;
-            title = 'Danger';
-        }
-        return Toast.prepare(title, message, button, onClick).setTime(0).setStyle('danger');
-    }
-
-    public static success(title: string, message?: string, button?: string, onClick?: (toast?: Toast) => void): Toast {
-        if (!message) {
-            message = title;
-            title = 'Success';
-        }
-        return Toast.prepare(title, message, button, onClick).setStyle('success');
-    }
-
-    public static warning(title: string, message?: string, button?: string, onClick?: (toast?: Toast) => void): Toast {
-        if (!message) {
-            message = title;
-            title = 'Warning';
-        }
-        return Toast.prepare(title, message, button, onClick).setStyle('warning');
-    }
-
-    public static removeToast(toast: Toast) {
-        toast.destroy();
-    }
-
-    public  static removeToastById(id: string) {
-        const toast = Toast._toasts.find(t => t.id === id);
-        if (toast) {
-            toast.destroy();
-        }
     }
 
 }
