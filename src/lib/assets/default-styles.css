@@ -26,15 +26,15 @@
 }
 
 .background-success {
-    background: green;
+    background: #65b844;
 }
 
 .text-success {
-    color: green;
+    color: #65b844 ;
 }
 
 .btn-success {
-    background: green;
+    background: #65b844;
     color: white;
 }
 
