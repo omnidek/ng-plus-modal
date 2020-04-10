@@ -45,8 +45,8 @@ export class Confirm {
         const confirm = new Confirm();
         confirm.title = title;
         confirm.message = message;
-        confirm.confirmButton = confirmButtonText;
-        confirm.onConfirmation = onConfirm;
+        confirm.confirmButton = confirmButtonText || 'Okay';
+        confirm.onConfirmation = onConfirm || confirm.onConfirmation;
         if(onCancellation){
             confirm.onCancellation = onCancellation;
         }
