@@ -38,6 +38,19 @@
     color: white;
 }
 
+.background-warning {
+    background: #fcac4c;
+}
+
+.text-warning {
+    color: #fcac4c ;
+}
+
+.btn-warning {
+    background: #fcac4c;
+    color: white;
+}
+
 .title {
     font-size: 1.4rem;
     padding-bottom: 8px;

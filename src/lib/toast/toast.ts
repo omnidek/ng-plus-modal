@@ -56,7 +56,7 @@ export class Toast {
             message = title;
             title = 'Error';
         }
-        return Toast.prepare(title, message, button, onClick).setStyle('danger').setTime(0);
+        return Toast.prepare(title, message, button, onClick).setStyle('danger').setTime(8000);
     }
 
     public static danger(title: string, message?: string, button?: string, onClick?: (toast?: Toast) => void): Toast {
@@ -64,7 +64,7 @@ export class Toast {
             message = title;
             title = 'Danger';
         }
-        return Toast.prepare(title, message, button, onClick).setTime(0).setStyle('danger');
+        return Toast.prepare(title, message, button, onClick).setTime(8000).setStyle('danger');
     }
 
     public static success(title: string, message?: string, button?: string, onClick?: (toast?: Toast) => void): Toast {
