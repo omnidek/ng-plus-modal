@@ -7,40 +7,39 @@ export class Confirm {
     style: 'primary' | 'danger' | 'warning' | 'info' | 'success' | 'default' = 'danger';
     confirmButton = 'Yes';
     cancelButton = 'Cancel';
-
     icon: string;
     imgUrl: string;
 
     protected presented = false;
 
-    public static info(title: string, message: string, confirmButtonText: string, onConfirm: (confirm?: Confirm) => void, 
+    public static info(title: string, message: string, confirmButtonText?: string, onConfirm?: (confirm?: Confirm) => void,
     onCancellation?: (cancel?: Confirm) => void): Confirm {
         return Confirm.prepare(title, message, confirmButtonText, onConfirm, onCancellation).setStyle('info');
     }
 
-    public static error(title: string, message: string, confirmButtonText: string, onConfirm: (confirm?: Confirm) => void,
+    public static error(title: string, message: string, confirmButtonText?: string, onConfirm?: (confirm?: Confirm) => void,
      onCancellation?: (cancel?: Confirm) => void): Confirm {
         return Confirm.prepare(title, message, confirmButtonText, onConfirm, onCancellation).setStyle('danger');
     }
 
-    public static danger(title: string, message: string, confirmButtonText: string, onConfirm: (confirm?: Confirm) => void, 
+    public static danger(title: string, message: string, confirmButtonText?: string, onConfirm?: (confirm?: Confirm) => void,
     onCancellation?: (cancel?: Confirm) => void): Confirm {
         return Confirm.prepare(title, message, confirmButtonText, onConfirm, onCancellation).setStyle('danger');
     }
 
-    public static delete(message: string, onConfirm: (confirm?: Confirm) => void, onCancellation?: (cancel?: Confirm) => void): Confirm {
+    public static delete(message: string, onConfirm?: (confirm?: Confirm) => void, onCancellation?: (cancel?: Confirm) => void): Confirm {
         return Confirm.prepare('Delete confirmation', message, 'Delete', onConfirm, onCancellation).setStyle('danger');
     }
 
-    public static success(title: string, message: string, confirmButtonText: string, onConfirm: (confirm?: Confirm) => void, onCancellation?: (cancel?: Confirm) => void): Confirm {
+    public static success(title: string, message: string, confirmButtonText?: string, onConfirm?: (confirm?: Confirm) => void, onCancellation?: (cancel?: Confirm) => void): Confirm {
         return Confirm.prepare(title, message, confirmButtonText, onConfirm, onCancellation).setStyle('success');
     }
 
-    public static warning(title: string, message: string, confirmButtonText: string, onConfirm: (confirm?: Confirm) => void, onCancellation?: (cancel?: Confirm) => void): Confirm {
+    public static warning(title: string, message: string, confirmButtonText?: string, onConfirm?: (confirm?: Confirm) => void, onCancellation?: (cancel?: Confirm) => void): Confirm {
         return Confirm.prepare(title, message, confirmButtonText, onConfirm, onCancellation).setStyle('warning');
     }
 
-    protected static prepare(title: string, message: string, confirmButtonText: string, onConfirm: (confirm?: Confirm) 
+    protected static prepare(title: string, message: string, confirmButtonText?: string, onConfirm?: (confirm?: Confirm)
     => void, onCancellation?: (cancel?: Confirm) => void): Confirm {
         const confirm = new Confirm();
         confirm.title = title;
