@@ -1,7 +1,7 @@
 <!-- <ng-container *ngIf="isProjectorOn"> -->
 <ng-container *ngFor="let item of modals">
     <div class="projector-screen projector" [ngClass]="{'no-display' : item.docked || !isProjectorOn}"
-        (mousedown)="backgroundClicked($event, item)" id="{{item.id}}">
+         id="{{item.id}}">
         <div class="projected-item animated {{item.styles}} {{item.animation}}">
             <div class="projected-item-content-title bg-color-1" *ngIf="item.showTitle">
                 <div class="modal-item-title">
@@ -9,8 +9,8 @@
                 </div>
                 <div class="projector-buttons" *ngIf="item.showTitleButtons">
 
-                    <a (click)="item.dock(true)"><i class="fal fa-chevron-down m-r-5"></i><span
-                            class="modal-label">Minimize</span></a>
+                    <!-- <a (click)="item.dock(true)"><i class="fal fa-chevron-down m-r-5"></i><span
+                            class="modal-label">Minimize</span></a> -->
                     <a (click)="item.close()"><i class="fal fa-times m-r-5"></i><span
                             class="modal-label">Close</span></a>
 
